@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="resourceApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resource Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+
+
+</head>
+
+<body>
+    <a href="#!/">Home</a> |
+    <a href="#!/about">About</a>
+    <div ng-view></div>
+    <script>
+        var app = angular.module('resourceApp', ['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+            .when('/', {
+                templateUrl: 'home.html',
+                controller: 'SPAController'
+            })
+            .when('/about',{
+                templateUrl: 'about.html',
+                controller: 'SPAController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            })
+        });
+        app.controller('SPAController',function($scope)
+    {
+        $scope.message = "Hello World";
+    })
+       
+    </script>
+
+</body>
+
+</html>

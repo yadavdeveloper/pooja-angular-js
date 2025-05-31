@@ -1,0 +1,22 @@
+<html ng-app="myApp.services"> 
+<head> 
+<title>Angular JS Services</title> 
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> 
+</script> 
+</head> 
+<body ng-controller="myCtrl">
+   <script>
+    var app = angular.module('myApp', []);
+    app.module('myApp.services',[]).service('assesmentservice',
+        function($http) {
+            this.getAssessment = function() {
+                return $http.get('http://localhost:8080/assesment/1')
+                .then(function(response) {
+                    return response.data;
+                    });
+                    }
+                    }
+    )
+   </script>
+</body>
+</html>

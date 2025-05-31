@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html ng-app="studentApp"> 
+<head> 
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> 
+</head> 
+<body class="container" ng-controller="studentController"> 
+
+  <p>Status: {{status}}</p> 
+  <p>Data: {{data}}</p> 
+
+  <input type="button" value="Get Data" ng-click="getStudent()" /> 
+
+  <script> 
+    var app = angular.module('studentApp', []); 
+
+    app.config(function ($provide) {
+      $provide.decorator('$exceptionHandler', function ($delegate) { 
+        return function (exception, cause) { 
+          $delegate(exception, cause); 
+          alert('⚠️ Error occurred! Please contact admin.');
+        }; 
+      }); 
+    });
+
+    app.controller("studentController", function ($scope) { 
+      var onSuccess = function (response) { 
+        $scope.status = response.status; 
+        $scope.data = response.data; 
+      };
+
+      var onError = function (response) { 
+        $scope.status = response.status; 
+        $scope.data = "Error fetching data."; 
+      };
+
+      $scope.getStudent = function () { 
+        //var url = "https://jsonplaceholder.typicode.com/posts/1";
+        //var url = "https://ghibliapi.vercel.app";
+        //$http.get(url).then(onSuccess, onError);
+        
+        $http.get("/getdata").then(onSuccess, onError); 
+      };
+    }); 
+  </script> 
+
+</body> 
+</html>

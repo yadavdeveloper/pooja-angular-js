@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="buttonsDemoBasic">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Material Buttons</title>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+  <!-- Angular Material dependencies -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+
+  <style>
+    .buttondemoBasicUsage section {
+      border-radius: 3px;
+      text-align: center;
+      margin: 1em;
+      position: relative !important;
+    }
+
+    .buttondemoBasicUsage section .md-button {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .buttondemoBasicUsage .label {
+      position: absolute;
+      bottom: 5px;
+      left: 7px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body ng-controller="AppCtrl" ng-cloak class="buttondemoBasicUsage">
+
+  <md-content layout-padding>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button>Button</md-button>
+      <md-button md-no-ink class="md-primary">Primary (md-no-ink)</md-button>
+      <md-button ng-disabled="isDisabled" class="md-primary">Disabled</md-button>
+      <md-button class="md-warn">Warn</md-button>
+      <div class="label">Flat</div>
+    </section>
+    <md-divider></md-divider>
+  </md-content>
+
+  <script>
+    angular.module('buttonsDemoBasic', ['ngMaterial'])
+    .controller('AppCtrl', function($scope) {
+      $scope.isDisabled = true;
+      $scope.googleUrl = 'http://google.com';
+    });
+  </script>
+
+</body>
+</html>

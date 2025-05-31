@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js "> 
+    </script>
+    <style>
+        input.ng-invalid{
+            background-color: aqua;
+        }
+        input.ng-valid{
+            background-color: #37ca2a;
+        }
+    </style>
+</head>
+<body ng-app="">
+      <form name="myfom">
+      <label>enter your city:</label>
+      <input type="text" name="mycity" ng-model="mycity" required>
+      </form>
+      <p>hi! i know that <em>{{mycity}}</em> is a nice place.</p>  
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "35",
+      "name": "abhi",
+      "username": "ram",
+      "Email": "ram@gmail.com"
+    },
+    {
+      "id": "75",
+      "name": "abhay",
+      "username": "admin 1",
+      "Email": "abhay@gmail.com"
+    },
+    {
+      "id": "76",
+      "name": "abhi",
+      "username": "ram",
+      "Email": "pooja@gmail.com"
+    },
+    {
+      "id": "1",
+      "name": "neha",
+      "username": "tonu",
+      "Email": "fdgfhg@gmail.com"
+    },
+    {
+      "id": "1",
+      "name": "abhi",
+      "username": "pinky",
+      "Email": "fdgfhg@gmail.com"
+    },
+    {
+      "id": "1",
+      "name": "pooja",
+      "username": "amitbhai",
+      "Email": "pooja@gmail.com"
+    }
+  ]
+}

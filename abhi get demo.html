@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>HTTP Get Demo</title> 
+        <script src = 
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> 
+        </script> 
+        </head> 
+        <body ng-app="myApp" ng-controller="FormulaOnectrl">{{text}}
+            <script>
+                var app =angular.module('myApp',[]);
+                app.controller('FormulaOnectrl',function($scope,$http){
+                    $http.get("https://gbfs.citibikenyc.com/gbfs/en/station_information.json")
+                    .then(function(response){
+                    $scope.text="request succeded.";
+                    console.log(response.data);
+                    
+                })
+               .catch (function(error){
+                $scope.text="request failed.";
+               console.error(error);
+            });
+          });  
+                
+            </script> 
+        </body> 
+        </html>
+        

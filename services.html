@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$http service demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <!-- <p>Today's welcome message is:</p> -->
+    <h1 ng-bind-html="myWelcome"></h1>
+
+    <p>The $http service requests a page on the server and the response is set as the value of the "myWelcome" variable.</p>
+
+    <script>
+        var app = angular.module('myApp', ['ngSanitize']);
+        app.controller('myCtrl', function ($scope, $http) {
+            $http.get("welcome.html")
+                .then(function (response) {
+                    $scope.myWelcome = response.data;
+                });
+        });
+    </script>
+</body>
+
+</html>

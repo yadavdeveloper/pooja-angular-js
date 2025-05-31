@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>HTTP Get Demo</title> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script> 
+</head> 
+<body ng-app="myApp" ng-controller="FormulaOneCtrl"> 
+  <p>{{text}}</p> 
+
+  <script> 
+    var app = angular.module('myApp', []); 
+    
+    app.controller('FormulaOneCtrl', function($scope, $http) { 
+      $http.get("https://ergast.com/api/f1/2019/circuits.json")
+        .then(function(response) {
+          $scope.text = "Request succeeded!";
+          console.log(response.data); // Optional: log the data
+        })
+        .catch(function(error) {
+          $scope.text = "Request failed!";
+          console.error(error); // Optional: log the error
+        });
+    }); 
+  </script> 
+</body> 
+</html>

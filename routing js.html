@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src = "angular-route.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+    <P><a href="https://www.newsmobile.in/nation/atithi-devo-bhava-foreign-tourists-footfall-in-india-soars-124-in-2023/">india tourism</a></P>
+    <P><a href="https://www.tajhotels.com/en-in">taj hotel</a></P>
+    <P><a href="https://www.tripadvisor.in/Attraction_Review-g297619-d497954-Reviews-Jhelum_River-Jammu_and_Kashmir.html">kashmir</a></P>
+    <P><a href="https://kumbh.gov.in/">prayagraj</a></P>
+    <p>click on the links to readabout london and paris</p>
+    <div ng-view style="background-color: orangered"></div>
+    <script>var app = angular.module("myapp",["ngroute"]);
+    app.configure(function($routeprovider){
+        $routeProvider.when("/",{
+        templateurl :"india tourism.html"})
+        .when("/",{
+            templateurl :"taj hotel.html"})
+        .when("/",{
+        templateurl :"kashmir.html"})
+        .when("/prayagraj",{
+        templateurl :"prayagraj.html"});
+    });
+ </script>
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        #mCanvas{
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var canvas = document.getElementById("mCanvas");
+            var ctext = canvas.getContext("2d");
+            var x=80;
+            var y=80;
+            ctext.strokeStyle="Brown";
+            ctext.strokeText("jay shree ram",x,y);
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="360" height="200"></canvas>
+</body>
+</html>

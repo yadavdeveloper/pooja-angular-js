@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en" ng-app="myApp"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Resource Demo</title> 
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> 
+</script> 
+</head> 
+<body ng-controller="myCtrl">
+username:
+<input type="text" ng-model="username">
+password:
+<input type="password" ng-model="password">
+<input type="button" ng-click="login()" value="login">
+<script>
+    angular.module('myApp', []).controller('myCtrl', function($scope) {
+        $scope.login = function()
+         {
+            var username = $scope.username;
+            var password = $scope.password;
+            if (username == "admin" && password == "admin") 
+            {
+                alert("Login Success");
+                window.open("event.html")
+            } 
+            else 
+            {
+                alert("Invalid username or password");      
+            }
+        }
+    });
+</script>
+</body>
+</html>

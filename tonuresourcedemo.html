@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="resourceApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-resource.min.js">
+    </script>
+</head>
+<body ng-controller="MainCtrl">
+    customer name:
+    <select ng-options="customer.Name customer in customers" ng-model="CurrentCustomer"></select>
+    <br><br>
+    New Name:<input type="text" custname="custname" ng-model="custname" ><br>
+    <br>
+    <input type="submit" value="submit" ng-click="Add()">
+    {{text}}   
+    
+</body>
+<script>
+     var app = angular.module('resourceApp', ['ngResource']);
+    app.controller('MainCtrl', function ($scope, $resource) {
+        var Customers = $resource('Customer.json').query(function () {
+            $scope.Customers = Customers;
+            $scope.CurrentCustomer = Customers[0];
+            $scope.Add = function () {
+                $scope.CurrentCustomer.Name = $scope.custname;
+                Customers.save($scope.CurrentCustomer, function () {
+                    $scope.text = "Added";
+                });
+            };
+        });
+    }); 
+    // var app = angular.module('resourceApp', ['ngResource']);
+    // app.controller('MainCtrl', function ($scope, $resource) {
+    //     var Customers = $resource('Customer.json').query(function () {
+    //         $scope.Customers = Customers;
+    //         $scope.CurrentCustomer = Customers[0];
+    //         $scope.Add = function () {
+    //             $scope.CurrentCustomer.Name = $scope.CustName;
+    //             Customers.save($scope.CurrentCustomer, function () {
+    //                 $scope.text = "Added";
+    //             });
+    //         };
+    //     });
+    // }); 
+</script>
+</html>

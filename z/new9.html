@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        #mCanvas{
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var canvas = document.getElementById("mCanvas");
+            var ctext=canvas.getContext("2d");
+            var ctrX=canvas.width/2;
+            var ctrY=canvas.height/2;
+            var radius=70;
+            ctext.beginPath();
+            ctext.arc(ctrX,ctrY,radius,0,2*Math.PI,false);
+            ctext.fillStyle="DarkOrchid";
+            ctext.fill();
+            ctext.linewidth=4;
+            ctext.strokeStyle="black";
+            ctext.stroke();
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mCanvas" width="356"height="150"></canvas>
+</body>
+</html>

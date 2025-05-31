@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+    <style>
+        .red-text { color:red; font-weight:bold;}
+        .blue-text { color:blue}
+        .green-text { color:green}
+    </style>
+</head>
+<body ng-controller="MainController">
+
+     <h1>angularjs directives example</h1>
+    <button ng-click="showMessage = !showMessage"> toggle message</button>
+    <p ng-show="showMessage">this message is visible when showMessage is true.</p>
+    <p ng-hide="showMessage">this message is hidden when showMessage is false.</p>
+    <hr>
+    <p ng-class="{'highlight': ishighlighted,'red-text':!ishighlighted}">this text</p>
+    
+    <button ng-click="{'highlight': ishighlighted,'blue':!ishighlighted}">toggle highlight</button>
+    <hr>
+    <h3>list of fruits (ng-repeat)</h3>
+    <ul>
+        <li ng-repeat="fruit in fruits">{{fruit}}</li>
+    </ul>
+    <hr>
+    <button ng-click="showIf = !showIf"> toggle message</button>
+    <p ng-if="showIf">this paragraph is added/removed from DOM using ng-If.</p>
+    <hr>
+    <h2>choose a color</h2>
+    <select ng-model="selectedColor">
+        <option value="red">red</option>
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+    </select>
+    <hr>
+    
+    <div ng-switch="selectedColor">
+        <p ng-switch-when="red" class="red-text">you selected red!</p>
+        <p ng-switch-when="blue" class="blue-text">you selected blue!</p>
+        <p ng-switch-when="green" class="green-text">you selected green!</p>
+        <p ng-switch-default>select a color to see the result.</p>
+            
+    </div>
+    <hr>
+    <h2>included content (ng-include)</h2>
+    <div ng-include="content.html"></div>
+    <hr>
+
+    <a href="">page 1</a>
+    <a href="">page 2</a>
+    <div ng-view></div>
+</body>
+<script>
+    var app = angular.module("myApp",["ngRoute"]);
+    app.config(function($routeProvider) 
+    {$routeProvider
+     .when("/page 1",{template:"page1.html"})
+     .when("/page 1",{template:"page1.html"})
+     .otherwise({redirectTo: "/"})
+    });
+
+
+    app.controller("MainController", function($scope){
+        $scope.showMessage = true;
+        $scope.ishighlighted = false;
+        $scope.fruits = ["apple","banana","orange","mango"];
+        $scope.showIf = false;
+        $scope.selectedcolor ="";
+    });
+</script>
+</html>

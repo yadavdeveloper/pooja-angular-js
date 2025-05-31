@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js "></script>
+</head>
+<body>
+    <div ng-app="demoapp" ng-controller="trainingctrl">
+    <h2>price of angular js training :{{ price | currency}}</h2>
+    <h2>price in indian rupees:{{rupeeprice | currency:"Rs"}}</h2>
+</div>
+<script>
+    var app = angular.module('demoapp',[]);
+    app.controller('trainingctrl',function($scope){
+        $scope.price = 500;
+        $scope.rupeeprice = 3000;
+    });
+</script>
+<p>the currency filter formats a number to a currency format.
+     default is american dollar.</p>
+     <p>for other currencies we need to add appropriate modiefier to the currency</p>
+</body>
+</html>

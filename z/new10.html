@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin:0px;
+            padding:0px;
+        }
+        #mCanvas{
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var canvas = document.getElementById("mCanvas");
+            var ctext=canvas.getContext("2d");
+            ctext.beginPath();
+            ctext.moveTo(188,130);
+           ctext.bezierCurveTo(140,10,388,10,288,100);
+            ctext.linewidth=15;
+            ctext.strokeStyle="black";
+            ctext.stroke();
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mCanvas" width="378" height="200"></canvas>
+</body>
+</html>

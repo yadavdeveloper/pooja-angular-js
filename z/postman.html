@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+     <h1>angularjs load local json data</h1>
+     <button ng-click="fetchUsers()">load users</button>
+    <table ng-show="users.length>0">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.Email}}</td>
+       </tr>
+    </table>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller("myController",  function($scope, $http) {
+            $scope.users = [];
+            $scope.fetchUsers = function() {
+                $http.get('postman.json').then(function(response) {
+                    $scope.users = response.data.users;
+                })
+                .catch(function(error) {
+                    console.error("error loading json data:",error);
+                });
+            };
+        });
+    </script>
+</body>
+</html>
